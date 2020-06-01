@@ -1,0 +1,3 @@
+class Sickness < ApplicationRecord
+  validates :name, presence: true, uniqueness: true
+end
