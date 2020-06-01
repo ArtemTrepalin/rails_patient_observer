@@ -1,18 +1,15 @@
 Rails.application.routes.draw do
 
- namespace :api do
-  namespace :v1 do
+  namespace :api do
+    namespace :v1 do
+    end
   end
- end
 
- scope module: :web do
+  scope module: :web do
     namespace :admin do
       resource :session, only: [:new, :create, :destroy]
-        root 'welcome#index'
-        resources :admins do
-          put 'restore'
-          put 'del'
-        end
+      resources :admins
+      root 'welcome#index'
     end
   end
 end
