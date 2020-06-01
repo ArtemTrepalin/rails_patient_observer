@@ -1,5 +1,5 @@
 %nav.navbar.navbar-dark.bg-primary
-  =link_to t('header.home'), root_path, class: 'navbar-brand'
+  =link_to t('header.home'), admin_root_path, class: 'navbar-brand'
   %ul.navbar-nav
   - if current_admin.present?
     =current_admin.email

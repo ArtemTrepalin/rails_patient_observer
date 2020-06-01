@@ -35,60 +35,10 @@ class Web::Admin::AdminsControllerTest < ActionDispatch::IntegrationTest
 
   test 'should put update admin' do
     attrs = {}
-    attrs[:name] = generate :name
+    attrs[:email] = generate :email
     put admin_admin_path(@admin), params: { admin: attrs }
     assert_response :redirect
     @admin.reload
-    assert_equal attrs[:name], @admin.name
-  end
-
-  test 'should state deleted  admin' do
-    put admin_admin_del_path(@admin)
-    assert_response :redirect
-    @admin.reload
-    assert_equal @admin.state, 'deleted'
-  end
-
-  test 'should state active admin' do
-    @admin = create :admin, :deleted
-    put admin_admin_restore_path(@admin.id)
-    assert_response :redirect
-    @admin.reload
-    assert_equal @admin.state, 'active'
-  end
-
-  test 'should not get show admin page for editor' do
-    sign_out_as_admin
-    editor = create :admin, :editor
-    sign_in_as_admin(editor)
-    get admin_admin_path(@admin)
-    assert_redirected_to admin_root_path
-  end
-
-  test 'should not get edit admin page for editor' do
-    sign_out_as_admin
-    editor = create :admin, :editor
-    sign_in_as_admin(editor)
-    get edit_admin_admin_path(@admin)
-    assert_redirected_to admin_root_path
-  end
-
-  test 'should not get new admin page for editor' do
-    sign_out_as_admin
-    editor = create :admin, :editor
-    sign_in_as_admin(editor)
-    get new_admin_admin_path
-    assert_redirected_to admin_root_path
-  end
-
-  test 'should not post create admin by editor' do
-    admins_attrs = attributes_for :admin
-    sign_out_as_admin
-    editor = create :admin, :editor
-    sign_in_as_admin(editor)
-    post admin_admins_path, params: { admin: admins_attrs }
-    assert_redirected_to admin_root_path
-    admin = Admin.last
-    assert_not_equal admins_attrs[:email], admin.email
+    assert_equal attrs[:email], @admin.email
   end
 end
