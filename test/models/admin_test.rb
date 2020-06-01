@@ -23,5 +23,4 @@ class AdminTest < ActiveSupport::TestCase
     second_admin = build :admin, email: 'test@gmail.com'
     assert_not second_admin.save
   end
-
 end
