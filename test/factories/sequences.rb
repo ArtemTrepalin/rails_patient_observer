@@ -26,6 +26,10 @@ FactoryBot.define do
     Time.zone.now + 86_400
   end
 
+  sequence :position do |n|
+    "1/#{n}"
+  end
+
   sequence :review do
     rand(0.0..5.0)
   end
