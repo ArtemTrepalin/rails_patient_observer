@@ -1,5 +1,4 @@
 class ApplicationController < ActionController::Base
-  include AuthHelper
   include Pundit
 
   rescue_from Pundit::NotAuthorizedError, with: :forbidden

@@ -3,11 +3,11 @@ version: '3'
 services:
   db:
     image: postgres:10.6
-    container_name: clean_db
+    container_name: patient_observer_db
   web:
     build: .
-    image: rails_cleaning_companies/web
-    container_name: clean-web
+    image: rails_patient_observer/web
+    container_name: patient_observer-web
     command: bash -c "puma"
     depends_on:
       - db
