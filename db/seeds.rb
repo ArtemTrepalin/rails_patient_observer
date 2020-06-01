@@ -1,1 +1,1 @@
-Admin.create(email: "admin@mail.ru" password: "qweasdzxc")
+Admin.create(email: "admin@mail.ru", password: "qweasdzxc")
