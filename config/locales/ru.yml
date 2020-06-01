@@ -1,0 +1,352 @@
+ru:
+  verification_code: "Проверочный код %{code}"
+  client_mailer:
+    welcome:
+      subject: "Добро пожаловать!"
+
+  control: Управление
+  header:
+    exit: Выход
+    home: Главная страница
+  cancel: Отмена
+
+  orders:
+    id: id
+    service_name: Сервис
+    company_name: Компания
+    city_name: Город
+    price: Цена
+    state: Состояние
+    date_start: Дата заказа
+    new: Создать заказ
+    back: Назад
+    edit: Редактировать заказ
+
+  auth:
+    cancel: Отмена
+    email: Ваша Почта
+    password: Ваш Пароль
+    phone_number: Ваш Номер Телефона
+    sms_send: Отправить СМС
+    sms_accept: Подтвердить
+    sms_code: Проверочный СМС Код
+    authorization: Авторизоваться
+    registation: Зарегистрироваться
+
+  attributes:
+    id: ID
+    email: Почта
+    state: Статус
+    password: Пароль
+    phone_number: Телефон
+    role: Роль
+  web:
+    welcome:
+      index:
+        static_data: Статистика сайта
+        services: Сервисы
+        companies: Компании
+        articles: Статьи
+        last_articles: Последние статьи
+        author: Автор
+        load_more: Загрузить еще
+        top_companies: Топ 5 компаний
+        rating: Рейтинг
+        find_us: Вы можете найти нас здесь
+
+    admin:
+      welcome:
+        index:
+          list_admin: Список Администраторов
+          list_company: Список Компаний
+          list_client: Список Клиентов
+          list_city: Список Городов
+          list_article: Список Статей
+          list_service: Список Услуг
+          list_service_price: Список цен
+          list_order: Список заказов
+      admins:
+        index:
+          back: "Назад"
+          create new: "Создать нового администратора"
+          view profile: "Посмотреть данные администратора"
+        show:
+          back: "Назад"
+          edit: "Редактировать"
+          deleted: "Перевести в статус не активный"
+          activate: "Перевести в статус активный"
+        edit:
+          cancel: "Отмена"
+
+      companies:
+        index:
+          back: "Назад"
+          create new: "Создать новую компанию"
+          view profile: "Посмотреть данные компании"
+        new:
+
+        show:
+          back: "Назад"
+          edit: "Редактировать"
+          deleted: "Перевести в статус не активный"
+          activate: "Перевести в статус активный"
+        edit:
+          cancel: "Отмена"
+
+      clients:
+        index:
+          show: "Просмотр"
+          create: "Создать"
+          back: "Назад"
+        new:
+          back: "Назад"
+        show:
+          deleted: "Перевести в статус не активный"
+          activate: "Перевести в статус активный"
+          edit: "Изменить"
+          back: "Назад" 
+        edit:
+          back: "Назад"
+      orders:
+        index:
+          view: "Просмотр"
+          back: "Назад"
+        show:
+          rejected: "Отменить "
+          activate: "Перевести в статус активный"
+          completed: "Перевести в статус Выполненный"
+          edit: "Изменить"
+          back: "Назад"
+      articles:
+        index:
+          show: "Просмотр"
+          create: "Создать"
+          back: "Назад"
+          view article: "Просмотреть"
+        new:
+          back: "Назад"
+        show:
+          edit: "Изменить"
+          delete: "Удалить"
+          back: "Назад"
+      cities:
+        index:
+          deleted: "Удалить"
+          create: "Создать"
+          back: "Назад"    
+      services:
+        index:
+          create: Создать
+          back: Назад
+          view: Просмотреть
+        new:
+          cancel: "Отмена"
+        show:
+          edit: "Изменить"
+          delete: "Удалить"
+          back: "Назад"
+        edit:
+          cancel: "Отмена"
+      service_prices:
+        index:
+          back: "Назад"
+          create: "Создать"
+          view: "Просмотреть"
+        show:
+          back: "Назад"
+          edit: "Изменить"
+          deleted: "Перевести в статус не активный"
+          activate: "Перевести в статус активный"
+          disable: "Перевести в статус временно не доступно"
+    company:
+      orders:
+        index:
+          view: "Просмотреть"
+          back: "Назад"
+        show:
+          back: "Назад"
+          activate: "Взять в работу"
+          rejected: "Отказаться"
+          complited: "Выполнен"
+      profiles:
+        edit:
+          cancel: "Отмена"
+        show: 
+          edit: "Изменить"
+          list_orders: "Список заказов"
+    client:
+      orders:
+        edit:
+        index:
+          back: Назад
+          orders_new: Создать новый заказ
+          orders_edit: Изменить
+        new:
+        show:
+          orders_back: Назад
+      profiles:
+        index:
+        show:
+          edit_profile: Редактировать профиль
+          create_new_order: Создать заказ
+          view_orders: Просмотр всех заказов
+  layouts:
+    welcome:
+      header:
+        title: Мойдодыр
+        title_description: Агрегатор клининговых компаний
+        main_page: Главная
+        company_registration: Зарегистрироваться как компания
+        client_registration: Зарегистрироваться как клиент
+        company_authorization: Авторизоваться как компания
+        client_authorization: Авторизоваться как клиент
+        our_blog: Наш блог
+        service_list: Список сервисов
+  api:
+    v1:
+      client_sessions:
+        create:
+          bad_params: Неверные параметры
+          empty_phone: Пустой номер телефона
+          auth_success: Авторизация была успешна
+          incorrect_sms_code: Неверный код подтверждения
+          sms_sent: Смс была отправлена
+          client_not_found: Клиента с таким номером телефона не существует
+      session_companies:
+          Bad_params: Неверные параметры
+          PhoneNumber_is_empty: Пустой номер телефона
+          Auth_success: Авторизация успешна
+          Incorrect_sms_code: Неверный код подтверждения
+          Sms_sent: Смс была отправлена
+          Company_not_found: Компании с таким номером телефона не существует
+
+  activerecord:
+    state_machines:
+      client:
+        state:
+          states:
+            active: Активный
+            deleted: Удаленный
+          events:
+            del: Удалить
+            activate: Восстановить
+      admin:
+        state:
+          states:
+            active: Активный
+            deleted: Удаленный
+          events:
+            del: Удалить
+            activate: Восстановить
+      company:
+        state:
+          states:
+            active: Активный
+            deleted: Удаленный
+          events:
+            del: Удалить
+            activate: Восстановить
+      service_price:
+        state:
+          states:
+            active: Активный
+            deleted: Удаленный
+            disable: Временно не доступный
+          events:
+            del: Удалить
+            activate: Доступна
+            disable: Временно не доступна
+      order:
+        state:
+          states:
+            active: В работе
+            rejected: Отклонён
+            pending: Создан
+            completed: Выполнен
+          events:
+            activate: В работе
+            reject: Отменен
+            complete: Выполнен
+            pending: Создан
+    models:
+      admin:
+        one: Администратор
+        others: Администраторы
+      company:
+        one: Компания
+        other: Компании
+      client:
+        one: Клиент
+        others: Клиенты
+      articles:
+        one: Статья
+        others: Статьи
+      city:
+        one: Город
+        others: Города
+      service:
+        one: Услуга
+        others: Услуги
+      service_price:
+        one: Цена
+        others: Цены
+      order:
+        one: Заказ
+        others: Заказы  
+
+    attributes:
+      client:
+        name: Имя
+        surname: Фамилия
+        email: Почта
+        phone_number: Телефон
+        password: Пароль
+      company:
+        city: Город
+        name: Название компании
+        requisites: Реквизиты
+        rating: Рейтинг
+        description: Описание
+        website: Сайт
+        phonenumber: Телефон
+        phone_and_email: Телефон и почта
+      admin:
+        name: Имя администратора
+      article:
+        title: Заголовок
+        short_description: Краткое описание
+        description: Описание
+        author: Автор
+        published_at: Дата публикации
+      city:
+        name: Название города
+      service:
+        name: Услуга
+      service_price:
+        price: Цена
+        service: Услуга
+        city: Город
+        company: Компания
+        city_id: Город
+        service_id: Услуга
+        company_id: Компания
+      order:
+        id: Номер заказа
+        client_name: Имя
+        client_surname: Фамилия
+        service_id: Услуга
+        company: Компания
+        date_start: Дата создания
+        date_end: Дата выполнения
+        review: Оценка заказа
+        service_price: Выберите сервис
+        city: Город
+        price: Цена
+  views:
+    pagination:
+      first: "&laquo; Первая"
+      last: "Последняя &raquo;"
+      next: "Следующая &rsaquo;"
+      previous: "&lsaquo; Предыдущая"
+      truncate: "&hellip;"     
+
