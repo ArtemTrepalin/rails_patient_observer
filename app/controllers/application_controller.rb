@@ -1,13 +1,3 @@
 class ApplicationController < ActionController::Base
-  include Pundit
-
-  rescue_from Pundit::NotAuthorizedError, with: :forbidden
-
-  def forbidden
-    redirect_to admin_root_path
-  end
-
-  def current_user
-    current_admin
-  end
+  include AuthHelper
 end
