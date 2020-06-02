@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_01_183610) do
+ActiveRecord::Schema.define(version: 2020_06_02_180409) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,21 @@ ActiveRecord::Schema.define(version: 2020_06_01_183610) do
 
   create_table "buildings", force: :cascade do |t|
     t.string "position"
+  end
+
+  create_table "patients", force: :cascade do |t|
+    t.string "first_name", null: false
+    t.string "last_name", null: false
+    t.string "sur_name"
+    t.string "phone_number", null: false
+    t.bigint "status_id", null: false
+    t.bigint "street_id", null: false
+    t.bigint "watcher_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["status_id"], name: "index_patients_on_status_id"
+    t.index ["street_id"], name: "index_patients_on_street_id"
+    t.index ["watcher_id"], name: "index_patients_on_watcher_id"
   end
 
   create_table "sicknesses", force: :cascade do |t|
@@ -57,6 +72,9 @@ ActiveRecord::Schema.define(version: 2020_06_01_183610) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "patients", "statuses"
+  add_foreign_key "patients", "streets"
+  add_foreign_key "patients", "watchers"
   add_foreign_key "street_buildings", "buildings"
   add_foreign_key "street_buildings", "streets"
 end
