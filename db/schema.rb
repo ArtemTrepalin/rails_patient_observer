@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_02_180409) do
+ActiveRecord::Schema.define(version: 2020_06_02_183723) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,16 @@ ActiveRecord::Schema.define(version: 2020_06_02_180409) do
 
   create_table "buildings", force: :cascade do |t|
     t.string "position"
+  end
+
+  create_table "patient_sicknesses", force: :cascade do |t|
+    t.bigint "patient_id", null: false
+    t.bigint "sickness_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["patient_id", "sickness_id"], name: "index_patient_sicknesses_on_patient_id_and_sickness_id", unique: true
+    t.index ["patient_id"], name: "index_patient_sicknesses_on_patient_id"
+    t.index ["sickness_id"], name: "index_patient_sicknesses_on_sickness_id"
   end
 
   create_table "patients", force: :cascade do |t|
@@ -72,6 +82,8 @@ ActiveRecord::Schema.define(version: 2020_06_02_180409) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "patient_sicknesses", "patients"
+  add_foreign_key "patient_sicknesses", "sicknesses"
   add_foreign_key "patients", "statuses"
   add_foreign_key "patients", "streets"
   add_foreign_key "patients", "watchers"
