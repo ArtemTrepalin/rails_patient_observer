@@ -43,6 +43,6 @@ class Web::Admin::StatusesController < Web::Admin::ApplicationController
   private
 
   def status_attrs
-    params.require(:status).permit(:name, patient_id: [])
+    params.require(:status).permit(:name, patient_ids: [])
   end
 end
