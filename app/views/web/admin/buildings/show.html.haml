@@ -1,0 +1,10 @@
+%table.table
+  %tr.table-info
+    %th= Building.human_attribute_name(:position)
+  %tbody
+    %tr
+      %td=@building.position
+= link_to t('.back'), admin_buildings_path, :class => "btn btn-info"
+= link_to t('.delete'), admin_building_path(@building.id), method: :delete, :class => "btn btn-info"
+= link_to t('.edit'), edit_admin_building_path(@building.id), :class => "btn btn-info"
+
