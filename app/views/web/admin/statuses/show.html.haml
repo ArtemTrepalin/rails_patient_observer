@@ -1,0 +1,10 @@
+%table.table
+  %tr.table-info
+    %th= Status.human_attribute_name(:name)
+  %tbody
+    %tr
+      %td=@status.name
+= link_to t('.back'), admin_statuses_path, :class => "btn btn-info"
+= link_to t('.delete'), admin_status_path(@status.id), method: :delete, :class => "btn btn-info"
+= link_to t('.edit'), edit_admin_status_path(@status.id), :class => "btn btn-info"
+
