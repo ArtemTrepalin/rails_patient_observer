@@ -1,0 +1,9 @@
+= simple_form_for @watcher, url: admin_watcher_path(@watcher.id) do |f|
+  = f.input :first_name
+  = f.input :last_name
+  = f.input :sur_name
+  = f.input :email
+  = f.input :phone_number
+  = f.input :password
+  = f.button :submit, :class => "btn btn-primary"
+= link_to t('.back'), admin_watchers_path, :class => "btn btn-primary"
