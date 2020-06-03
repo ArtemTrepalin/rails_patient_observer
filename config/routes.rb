@@ -11,6 +11,7 @@ Rails.application.routes.draw do
       resources :admins
       resources :statuses
       resources :watchers
+      resources :sicknesses
       root 'welcome#index'
     end
   end

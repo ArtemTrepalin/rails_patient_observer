@@ -1,0 +1,4 @@
+= simple_form_for @sickness, url: admin_sickness_path(@sickness.id) do |f|
+  = f.input :name
+  = f.button :submit, :class => "btn btn-primary"
+  =link_to t('.cancel'), admin_sicknesses_path, :class => "btn btn-primary"
