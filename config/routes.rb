@@ -14,6 +14,7 @@ Rails.application.routes.draw do
       resources :sicknesses
       resources :buildings
       resources :streets
+      resources :patients
       root 'welcome#index'
     end
   end
