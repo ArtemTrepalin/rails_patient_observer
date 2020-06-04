@@ -13,6 +13,7 @@ Rails.application.routes.draw do
       resources :watchers
       resources :sicknesses
       resources :buildings
+      resources :streets
       root 'welcome#index'
     end
   end
