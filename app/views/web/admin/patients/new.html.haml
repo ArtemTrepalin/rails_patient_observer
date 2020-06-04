@@ -1,0 +1,11 @@
+= simple_form_for @patient, url: admin_patients_path do |f|
+  = f.input :first_name
+  = f.input :last_name
+  = f.input :sur_name
+  = f.input :phone_number
+  = f.input :password
+  = f.association :status
+  = f.association :street
+  = f.association :watcher
+  = f.button :submit, class: 'btn btn-info'
+= link_to t('.back'), admin_patients_path, class: 'btn btn-info'

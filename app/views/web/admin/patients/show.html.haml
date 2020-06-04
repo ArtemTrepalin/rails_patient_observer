@@ -1,0 +1,20 @@
+%table.table
+  %thead
+    %tr
+      %th= Patient.human_attribute_name(:first_name)
+      %th= Patient.human_attribute_name(:last_name)
+      %th= Patient.human_attribute_name(:sur_name)
+      %th= Patient.human_attribute_name(:phone_number)
+      %th= Patient.human_attribute_name(:status)
+      %th= Patient.human_attribute_name(:street)
+      %th= Patient.human_attribute_name(:watcher)
+  %tbody
+    %tr
+      %th= @patient.first_name
+      %th= @patient.last_name
+      %th= @patient.sur_name
+      %th= @patient.phone_number
+      %th= @patient.status.name
+      %th= @patient.street.name
+      %th= @patient.watcher.first_name
+%b= link_to t('.back'), admin_patients_path, :class => 'btn btn-info'
