@@ -1,0 +1,4 @@
+= simple_form_for @street, url: admin_streets_path do |f|
+  = f.input :name
+  = f.button :submit, :class => "btn btn-primary"
+  = link_to t('.cancel'), admin_streets_path, :class => "btn btn-primary"
