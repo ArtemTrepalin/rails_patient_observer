@@ -1,0 +1,26 @@
+%table.table
+  %tr.table-info
+    %td= Patient.human_attribute_name(:id)
+    %td= Patient.human_attribute_name(:first_name)
+    %td= Patient.human_attribute_name(:last_name)
+    %td= Patient.human_attribute_name(:sur_name)
+    %td= Patient.human_attribute_name(:phone_number)
+    %td= Patient.human_attribute_name(:status)
+    %td= Patient.human_attribute_name(:street)
+    %td= Patient.human_attribute_name(:watcher)
+    %td= t('control')
+  - @patients.each do |patient|
+    %tr.bg-success
+      %td= patient.id
+      %td= patient.first_name
+      %td= patient.last_name
+      %td= patient.sur_name
+      %td= patient.phone_number
+      %td= patient.status.name
+      %td= patient.street.name
+      %td= patient.watcher.first_name
+      %td= link_to t('.show'), admin_patient_path(patient)
+.btn.btn-light
+  = link_to t('.create'), new_admin_patient_path(@patient), :class => "btn btn-info"
+.btn.btn-light
+  = link_to t('.back'), admin_root_path, :class => "btn btn-info"
