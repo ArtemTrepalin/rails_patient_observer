@@ -32,7 +32,6 @@ class Web::Admin::PatientsControllerTest < ActionDispatch::IntegrationTest
     assert_equal patient.status, status
     assert_equal patient.street, street
     assert_equal patient.watcher, watcher
-
   end
 
   test 'should not create patient' do
