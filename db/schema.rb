@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_05_110119) do
+ActiveRecord::Schema.define(version: 2020_06_05_120527) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,10 +20,12 @@ ActiveRecord::Schema.define(version: 2020_06_05_110119) do
     t.string "password_digest", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["email"], name: "index_admins_on_email", unique: true
   end
 
   create_table "buildings", force: :cascade do |t|
     t.string "position"
+    t.index ["position"], name: "index_buildings_on_position", unique: true
   end
 
   create_table "histories", force: :cascade do |t|
@@ -64,10 +66,12 @@ ActiveRecord::Schema.define(version: 2020_06_05_110119) do
 
   create_table "sicknesses", force: :cascade do |t|
     t.string "name"
+    t.index ["name"], name: "index_sicknesses_on_name", unique: true
   end
 
   create_table "statuses", force: :cascade do |t|
     t.string "name"
+    t.index ["name"], name: "index_statuses_on_name", unique: true
   end
 
   create_table "street_buildings", force: :cascade do |t|
@@ -80,6 +84,7 @@ ActiveRecord::Schema.define(version: 2020_06_05_110119) do
 
   create_table "streets", force: :cascade do |t|
     t.string "name"
+    t.index ["name"], name: "index_streets_on_name", unique: true
   end
 
   create_table "watchers", force: :cascade do |t|
@@ -91,6 +96,7 @@ ActiveRecord::Schema.define(version: 2020_06_05_110119) do
     t.string "password_digest", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["email"], name: "index_watchers_on_email", unique: true
   end
 
   add_foreign_key "histories", "patients"
