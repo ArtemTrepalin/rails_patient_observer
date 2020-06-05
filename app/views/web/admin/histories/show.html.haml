@@ -1,0 +1,16 @@
+%table.table
+  %thead
+    %tr
+    %td= History.human_attribute_name(:id)
+    %td= History.human_attribute_name(:patient)
+    %td= History.human_attribute_name(:watcher)
+    %td= History.human_attribute_name(:status)
+    %td= History.human_attribute_name(:updated_at)
+  %tbody
+    %tr
+      %td= @history.id
+      %td= @history.patient.first_name
+      %td= @history.watcher.first_name
+      %td= @history.status.name
+      %td= @history.updated_at
+%b= link_to t('.back'), admin_histories_path, :class => 'btn btn-info'

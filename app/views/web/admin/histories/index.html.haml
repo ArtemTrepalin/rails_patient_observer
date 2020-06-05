@@ -1,0 +1,16 @@
+%table.table
+  %tr.table-info
+    %td= History.human_attribute_name(:id)
+    %td= History.human_attribute_name(:patient)
+    %td= History.human_attribute_name(:watcher)
+    %td= History.human_attribute_name(:status)
+    %td= History.human_attribute_name(:updated_at)
+  - @histories.each do |history|
+    %tr.bg-success
+      %td= history.id
+      %td= history.patient.first_name
+      %td= history.watcher.first_name
+      %td= history.status.name
+      %td= history.updated_at
+.btn.btn-light
+  = link_to t('.back'), admin_root_path, :class => "btn btn-info"
