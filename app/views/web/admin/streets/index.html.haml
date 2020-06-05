@@ -8,7 +8,5 @@
       %td= street.id
       %td= street.name
       %td= link_to t('.view'), admin_street_path(street)
-.btn.btn-light
-  = link_to t('.back'), admin_root_path, :class => "btn btn-info"
-.btn.btn-light
-  = link_to t('.create'), new_admin_street_path, :class => "btn btn-info"
+= link_to t('.back'), admin_root_path, :class => "btn btn-info"
+= link_to t('.create'), new_admin_street_path, :class => "btn btn-info"
