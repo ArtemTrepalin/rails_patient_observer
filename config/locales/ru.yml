@@ -58,13 +58,13 @@ ru:
       welcome:
         index:
           list_admin: Список Администраторов
-          list_company: Список Компаний
-          list_client: Список Клиентов
-          list_city: Список Городов
-          list_article: Список Статей
-          list_service: Список Услуг
-          list_service_price: Список цен
-          list_order: Список заказов
+          list_buildings: Список Домов
+          list_streets: Список Улиц
+          list_statuses: Список Статусов Пациента
+          list_patients: Список Пациентов
+          list_watcheres: Список Сиделок
+          list_sickneses: Список Болезней
+          list_histories: Список Историй
       admins:
         index:
           back: "Назад"
@@ -193,7 +193,7 @@ ru:
   layouts:
     welcome:
       header:
-        title: Мойдодыр
+        title: Присмотр за больными
         title_description: Агрегатор клининговых компаний
         main_page: Главная
         company_registration: Зарегистрироваться как компания
