@@ -8,10 +8,9 @@
     %td= History.human_attribute_name(:updated_at)
   %tbody
     %tr
-      %td= history.id
-      %td= history.patient.first_name
-      %td= history.watcher.first_name
-      %td= history.status.name
-      %td= history.updated_at
-      %td= link_to t('.show'), admin_history_path(history)
+      %td= @history.id
+      %td= @history.patient.first_name
+      %td= @history.watcher.first_name
+      %td= @history.status.name
+      %td= @history.updated_at
 %b= link_to t('.back'), admin_histories_path, :class => 'btn btn-info'

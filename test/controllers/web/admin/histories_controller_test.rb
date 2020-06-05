@@ -4,7 +4,7 @@ class Web::Admin::HistoriesControllerTest < ActionDispatch::IntegrationTest
   setup do
     @admin = create :admin
     sign_in_as_admin(@admin)
-    @hitsory = create :history
+    @history = create :history
   end
 
   test 'should get index histories page' do
@@ -13,7 +13,7 @@ class Web::Admin::HistoriesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should get show history page' do
-    get admin_histoty_path(@history)
+    get admin_history_path(@history)
     assert_response :success
   end
 end

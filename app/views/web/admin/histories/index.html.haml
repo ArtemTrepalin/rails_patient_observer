@@ -5,16 +5,12 @@
     %td= History.human_attribute_name(:watcher)
     %td= History.human_attribute_name(:status)
     %td= History.human_attribute_name(:updated_at)
-    %td= t('control')
-  - @histroies.each do |history|
+  - @histories.each do |history|
     %tr.bg-success
       %td= history.id
       %td= history.patient.first_name
       %td= history.watcher.first_name
       %td= history.status.name
       %td= history.updated_at
-      %td= link_to t('.show'), admin_history_path(history)
-.btn.btn-light
-  = link_to t('.create'), new_admin_history_path(@history), :class => "btn btn-info"
 .btn.btn-light
   = link_to t('.back'), admin_root_path, :class => "btn btn-info"
