@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  root to: 'web/admin/welcome#index'
+
   namespace :api do
     namespace :v1 do
     end
