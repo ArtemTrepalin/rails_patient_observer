@@ -36,7 +36,7 @@ class Web::Admin::PatientsController < Web::Admin::ApplicationController
   private
 
   def patient_attrs
-    params.require(:patient).permit(:first_name, :last_name, :sur_name, :phone_number, :status_id, :street_id,
+    params.require(:patient).permit(:first_name, :last_name, :sur_name, :phone_number, :status_id,
                                     :watcher_id)
   end
 end

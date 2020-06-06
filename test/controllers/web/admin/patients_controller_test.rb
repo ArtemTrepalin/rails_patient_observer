@@ -17,11 +17,9 @@ class Web::Admin::PatientsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should create patient' do
-    street = create :street
     status = create :status
     watcher = create :watcher
     patient_attrs = attributes_for :patient
-    patient_attrs[:street_id] = street.id
     patient_attrs[:status_id] = status.id
     patient_attrs[:watcher_id] = watcher.id
     post admin_patients_path, params: { patient: patient_attrs }
@@ -30,7 +28,6 @@ class Web::Admin::PatientsControllerTest < ActionDispatch::IntegrationTest
     patient = Patient.last
     assert_equal patient_attrs[:last_name], patient.last_name
     assert_equal patient.status, status
-    assert_equal patient.street, street
     assert_equal patient.watcher, watcher
   end
 

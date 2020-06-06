@@ -5,7 +5,6 @@ FactoryBot.define do
     sur_name
     phone_number
     status
-    street
     watcher
   end
 end

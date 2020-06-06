@@ -14,8 +14,6 @@ Rails.application.routes.draw do
       resources :statuses
       resources :watchers
       resources :sicknesses
-      resources :buildings
-      resources :streets
       resources :patients
       resources :histories, only: [:index, :show]
       root 'welcome#index'
