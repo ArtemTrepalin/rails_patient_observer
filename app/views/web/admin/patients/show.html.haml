@@ -18,3 +18,4 @@
       %th= @patient.street.name
       %th= @patient.watcher.first_name
 %b= link_to t('.back'), admin_patients_path, :class => 'btn btn-info'
+%b= link_to t('.edit'), edit_admin_patient_path(@patient.id), :class => "btn btn-info"
