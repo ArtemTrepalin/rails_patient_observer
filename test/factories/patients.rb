@@ -4,6 +4,7 @@ FactoryBot.define do
     last_name
     sur_name
     phone_number
+    address
     status
     watcher
   end
