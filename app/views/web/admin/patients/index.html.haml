@@ -6,7 +6,6 @@
     %td= Patient.human_attribute_name(:sur_name)
     %td= Patient.human_attribute_name(:phone_number)
     %td= Patient.human_attribute_name(:status)
-    %td= Patient.human_attribute_name(:street)
     %td= Patient.human_attribute_name(:watcher)
     %td= t('control')
   - @patients.each do |patient|
@@ -17,7 +16,6 @@
       %td= patient.sur_name
       %td= patient.phone_number
       %td= patient.status.name
-      %td= patient.street.name
       %td= patient.watcher.first_name
       %td= link_to t('.show'), admin_patient_path(patient)
 = link_to t('.create'), new_admin_patient_path(@patient), :class => "btn btn-info"
