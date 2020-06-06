@@ -4,5 +4,5 @@ class Patient < ApplicationRecord
   has_many :sickness, through: :patient_sickness
   has_many :history, dependent: :nullify
 
-  validates :first_name, :last_name, :phone_number, presence: true
+  validates :first_name, :last_name, :address, :phone_number, presence: true
 end
