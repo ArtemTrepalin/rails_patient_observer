@@ -63,4 +63,17 @@ class Web::Admin::PatientsControllerTest < ActionDispatch::IntegrationTest
     @patient.reload
     assert_equal attrs[:first_name], @patient.first_name
   end
+
+  test 'should add history_log after update patient' do
+    attrs = {}
+    attrs[:first_name] = generate :first_name
+    put admin_patient_path(@patient.id), params: { patient: attrs }
+    assert_response :redirect
+
+    @patient.reload
+    history = History.last
+    assert_equal history.watcher_id, @patient.watcher_id
+    assert_equal history.patient_id, @patient.id
+    assert_equal history.status_id, @patient.status_id
+  end
 end
