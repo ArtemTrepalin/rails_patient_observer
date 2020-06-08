@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_08_132428) do
+ActiveRecord::Schema.define(version: 2020_06_08_140206) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,13 @@ ActiveRecord::Schema.define(version: 2020_06_08_132428) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["patient_id"], name: "index_checklists_on_patient_id"
+  end
+
+  create_table "contacts", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "phone_number", null: false
+    t.bigint "patient_id"
+    t.index ["patient_id"], name: "index_contacts_on_patient_id"
   end
 
   create_table "histories", force: :cascade do |t|
@@ -90,6 +97,7 @@ ActiveRecord::Schema.define(version: 2020_06_08_132428) do
   end
 
   add_foreign_key "checklists", "patients"
+  add_foreign_key "contacts", "patients"
   add_foreign_key "histories", "patients"
   add_foreign_key "histories", "statuses"
   add_foreign_key "histories", "watchers"
