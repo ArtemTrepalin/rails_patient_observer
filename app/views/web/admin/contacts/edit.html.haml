@@ -1,0 +1,6 @@
+= simple_form_for @contact, url: admin_contact_path(@contact.id) do |f|
+  = f.input :name
+  = f.input :phone_number
+  = f.association :patient
+  = f.button :submit, :class => "btn btn-primary"
+= link_to t('.back'), admin_contacts_path, :class => "btn btn-primary"
