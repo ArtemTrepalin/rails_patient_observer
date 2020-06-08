@@ -1,0 +1,16 @@
+%table.table
+  %tr.table-info
+    %td= Checklist.human_attribute_name(:id)
+    %td= Checklist.human_attribute_name(:name)
+    %td= Checklist.human_attribute_name(:status)
+    %td= Checklist.human_attribute_name(:patient)
+    %td= t('control')
+  - @checklists.each do |checklist|
+    %tr.bg-success
+      %td= checklist.id
+      %td= checklist.name
+      %td= checklist.status
+      %td= checklist.patient.first_name
+      %td= link_to t('.show'), admin_checklist_path(checklist)
+= link_to t('.create'), new_admin_checklist_path(@checklist), :class => "btn btn-info"
+= link_to t('.back'), admin_root_path, :class => "btn btn-info"

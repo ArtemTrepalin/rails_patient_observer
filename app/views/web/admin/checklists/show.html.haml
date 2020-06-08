@@ -1,0 +1,14 @@
+%table.table
+  %thead
+    %tr
+      %td= Checklist.human_attribute_name(:id)
+      %td= Checklist.human_attribute_name(:name)
+      %td= Checklist.human_attribute_name(:status)
+      %td= Checklist.human_attribute_name(:patient)
+  %tbody
+    %tr
+      %th= @checklist.id
+      %th= @checklist.name
+      %th= @checklist.status
+      %td= @checklist.patient.first_name
+%b= link_to t('.back'), admin_checklists_path, :class => 'btn btn-info'
