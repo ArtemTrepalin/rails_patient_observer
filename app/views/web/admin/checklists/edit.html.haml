@@ -1,0 +1,6 @@
+= simple_form_for @checklist, url: admin_checklist_path(@checklist.id) do |f|
+  = f.input :name
+  = f.input :status
+  = f.association :patient
+  = f.button :submit, :class => "btn btn-primary"
+= link_to t('.back'), admin_checklists_path, :class => "btn btn-primary"
