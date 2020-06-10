@@ -65,6 +65,8 @@ ru:
           list_watcheres: Список Сиделок
           list_sickneses: Список Болезней
           list_histories: Список Историй
+          list_checklists: Список Задач Ухода
+          list_contacts: Список Контактов Пациета
       admins:
         index:
           back: "Назад"
