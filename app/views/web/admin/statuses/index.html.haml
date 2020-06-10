@@ -1,12 +1,12 @@
-%table.table
-  %tr.table-info
+%table.table.table-striped.table-hover
+  %tr
     %th= Status.human_attribute_name(:id)
     %th= Status.human_attribute_name(:name)
     %th= t('control')
   - @statuses.each do |status|
-    %tr.bg-success
+    %tr
       %td= status.id
       %td= status.name
       %td= link_to t('.view'), admin_status_path(status)
-= link_to t('.back'), admin_root_path, :class => "btn btn-info"
-= link_to t('.create'), new_admin_status_path, :class => "btn btn-info"
+= link_to t('.back'), admin_root_path, :class => "btn btn-outline-secondary"
+= link_to t('.create'), new_admin_status_path, :class => "btn btn-outline-secondary"

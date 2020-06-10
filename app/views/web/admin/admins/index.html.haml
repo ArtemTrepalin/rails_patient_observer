@@ -1,17 +1,12 @@
-%table.table
-  %tr.table-info
-    %th= Admin.human_attribute_name (:id)
-    %th= Admin.human_attribute_name (:email)
-    %th= t('control')
+%table.table.table-striped.table-hover
+  %tr
+    %th= Admin.human_attribute_name(:id)
+    %th= Admin.human_attribute_name(:email)
+    %th{:colspan => "2"}= t('.control')
   - @admins.each do |admin|
-    %tr.bg-success
-      %td=admin.id
-      %td=admin.email
-      %td=link_to t('.view profile'), admin_admin_path(admin)
-
-= link_to t('.back'), admin_root_path, :class => "btn btn-info"
-= link_to t('.create new'), new_admin_admin_path, :class => "btn btn-info"
-
-
-
-
+    %tr
+      %td= admin.id
+      %td= admin.email
+      %td= link_to t('.view profile'), admin_admin_path(admin.id), class: 'btn btn-success btn'
+%td= link_to t('.back'), admin_root_path, :class => "btn btn-outline-secondary"
+%td= link_to t('.create new'), new_admin_admin_path, :class => "btn btn-outline-secondary"

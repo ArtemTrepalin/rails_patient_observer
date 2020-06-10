@@ -1,4 +1,4 @@
-%table.table
+%table.table.table-striped.table-hover
   %thead
     %tr
       %th= Patient.human_attribute_name(:first_name)
@@ -17,5 +17,5 @@
       %th= @patient.phone_number
       %th= @patient.status.name
       %th= @patient.watcher.first_name
-%b= link_to t('.back'), admin_patients_path, :class => 'btn btn-info'
-%b= link_to t('.edit'), edit_admin_patient_path(@patient.id), :class => "btn btn-info"
+%b= link_to t('.back'), admin_patients_path, :class => 'btn btn-outline-secondary'
+%b= link_to t('.edit'), edit_admin_patient_path(@patient.id), :class => "btn btn-outline-secondary"

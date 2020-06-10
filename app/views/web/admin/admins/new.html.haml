@@ -1,5 +1,5 @@
 = simple_form_for @admin, url: admin_admins_path do |f|
   = f.input :email
   = f.input :password
-  = f.button :submit, class: 'btn btn-info'
-  = link_to t('cancel'), admin_admins_path, :class => "btn btn-info"
+  = f.button :submit, class: 'btn btn-outline-secondary'
+  = link_to t('cancel'), admin_admins_path, :class => "btn btn-outline-secondary"

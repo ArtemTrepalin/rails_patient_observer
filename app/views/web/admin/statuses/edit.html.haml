@@ -1,4 +1,4 @@
 = simple_form_for @status, url: admin_status_path(@status.id) do |f|
   = f.input :name
-  = f.button :submit, :class => "btn btn-primary"
-  =link_to t('.cancel'), admin_statuses_path, :class => "btn btn-primary"
+  = f.button :submit, :class => "btn btn-outline-secondary"
+  =link_to t('.cancel'), admin_statuses_path, :class => "btn btn-outline-secondary"

@@ -1,4 +1,4 @@
-%table.table
+%table.table.table-striped.table-hover
   %thead
     %tr
       %td= Checklist.human_attribute_name(:id)
@@ -11,4 +11,4 @@
       %th= @checklist.name
       %th= @checklist.status
       %td= @checklist.patient.first_name
-%b= link_to t('.back'), admin_checklists_path, :class => 'btn btn-info'
+%b= link_to t('.back'), admin_checklists_path, :class => 'btn btn-outline-secondary'

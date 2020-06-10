@@ -1,4 +1,4 @@
-%table.table
+%table.table.table-striped.table-hover
   %thead
     %tr
       %th= Watcher.human_attribute_name(:first_name)
@@ -13,4 +13,4 @@
       %th= @watcher.sur_name
       %th= @watcher.phone_number
       %th= @watcher.email
-%b= link_to t('.back'), admin_watchers_path, :class => 'btn btn-info'
+%b= link_to t('.back'), admin_watchers_path, :class => 'btn btn-outline-secondary'

@@ -1,5 +1,5 @@
-%table.table
-  %tr.table-info
+%table.table.table-striped.table-hover
+  %tr
     %td= Patient.human_attribute_name(:id)
     %td= Patient.human_attribute_name(:first_name)
     %td= Patient.human_attribute_name(:last_name)
@@ -10,7 +10,7 @@
     %td= Patient.human_attribute_name(:watcher)
     %td= t('control')
   - @patients.each do |patient|
-    %tr.bg-success
+    %tr
       %td= patient.id
       %td= patient.first_name
       %td= patient.last_name
@@ -20,5 +20,5 @@
       %td= patient.status.name
       %td= patient.watcher.first_name
       %td= link_to t('.show'), admin_patient_path(patient)
-= link_to t('.create'), new_admin_patient_path(@patient), :class => "btn btn-info"
-= link_to t('.back'), admin_root_path, :class => "btn btn-info"
+= link_to t('.create'), new_admin_patient_path(@patient), :class => "btn btn-outline-secondary"
+= link_to t('.back'), admin_root_path, :class => "btn btn-outline-secondary"

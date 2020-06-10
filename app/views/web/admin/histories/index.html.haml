@@ -1,15 +1,15 @@
-%table.table
-  %tr.table-info
+%table.table-striped.table-hover
+  %tr
     %td= History.human_attribute_name(:id)
     %td= History.human_attribute_name(:patient)
     %td= History.human_attribute_name(:watcher)
     %td= History.human_attribute_name(:status)
     %td= History.human_attribute_name(:updated_at)
   - @histories.each do |history|
-    %tr.bg-success
+    %tr
       %td= history.id
       %td= history.patient.first_name
       %td= history.watcher.first_name
       %td= history.status.name
       %td= history.updated_at
-= link_to t('.back'), admin_root_path, :class => "btn btn-info"
+= link_to t('.back'), admin_root_path, :class => "btn btn-outline-secondary"

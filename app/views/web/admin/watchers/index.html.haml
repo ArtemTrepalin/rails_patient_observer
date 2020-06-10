@@ -1,5 +1,5 @@
-%table.table
-  %tr.table-info
+%table.table.table-striped.table-hover
+  %tr
     %td= Watcher.human_attribute_name(:id)
     %td= Watcher.human_attribute_name(:first_name)
     %td= Watcher.human_attribute_name(:last_name)
@@ -8,7 +8,7 @@
     %td= Watcher.human_attribute_name(:phone_number)
     %td= t('control')
   - @watchers.each do |watcher|
-    %tr.bg-success
+    %tr
       %td= watcher.id
       %td= watcher.first_name
       %td= watcher.last_name
@@ -16,5 +16,5 @@
       %td= watcher.email
       %td= watcher.phone_number
       %td= link_to t('.show'), admin_watcher_path(watcher)
-= link_to t('.create'), new_admin_watcher_path(@watcher), :class => "btn btn-info"
-= link_to t('.back'), admin_root_path, :class => "btn btn-info"
+= link_to t('.create'), new_admin_watcher_path(@watcher), :class => "btn btn-outline-secondary"
+= link_to t('.back'), admin_root_path, :class => "btn btn-outline-secondary"

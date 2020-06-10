@@ -1,4 +1,4 @@
-%table.table
+%table.table.table-striped.table-hover
   %thead
     %tr
     %td= History.human_attribute_name(:id)
@@ -13,4 +13,4 @@
       %td= @history.watcher.first_name
       %td= @history.status.name
       %td= @history.updated_at
-%b= link_to t('.back'), admin_histories_path, :class => 'btn btn-info'
+%b= link_to t('.back'), admin_histories_path, :class => 'btn btn-outline-secondary'

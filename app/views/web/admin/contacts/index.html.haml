@@ -1,16 +1,16 @@
-%table.table
-  %tr.table-info
+%table.table.table-striped.table-hover
+  %tr
     %td= Contact.human_attribute_name(:id)
     %td= Contact.human_attribute_name(:name)
     %td= Contact.human_attribute_name(:phone_number)
     %td= Contact.human_attribute_name(:patient)
     %td= t('control')
   - @contacts.each do |contact|
-    %tr.bg-success
+    %tr
       %td= contact.id
       %td= contact.name
       %td= contact.phone_number
       %td= contact.patient.first_name
       %td= link_to t('.show'), admin_contact_path(contact)
-= link_to t('.create'), new_admin_contact_path(@contact), :class => "btn btn-info"
-= link_to t('.back'), admin_root_path, :class => "btn btn-info"
+= link_to t('.create'), new_admin_contact_path(@contact), :class => "btn btn-outline-secondary"
+= link_to t('.back'), admin_root_path, :class => "btn btn-outline-secondary"
