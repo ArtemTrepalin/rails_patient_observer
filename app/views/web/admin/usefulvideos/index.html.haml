@@ -1,0 +1,16 @@
+%table.table.table-striped.table-hover
+  %tr
+    %td= UsefulVideo.human_attribute_name(:id)
+    %td= UsefulVideo.human_attribute_name(:description)
+    %td= UsefulVideo.human_attribute_name(:link)
+    %td= UsefulVideo.human_attribute_name(:category)
+    %td= t('control')
+  - @usefulvideos.each do |usefulvideo|
+    %tr
+      %td= usefulvideo.id
+      %td= usefulvideo.description
+      %td= usefulvideo.link
+      %td= usefulvideo.category.name
+      %td= link_to t('.show'), admin_usefulvideo_path(usefulvideo)
+= link_to t('.create'), new_admin_usefulvideo_path(@usefulvideo), :class => "btn btn-outline-secondary"
+= link_to t('.back'), admin_root_path, :class => "btn btn-outline-secondary"
