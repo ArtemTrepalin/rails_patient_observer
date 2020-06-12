@@ -1,0 +1,12 @@
+%table.table.table-striped.table-hover
+  %thead
+    %tr
+      %td= Category.human_attribute_name(:id)
+      %td= Category.human_attribute_name(:name)
+      %td= Category.human_attribute_name(:image_link)
+  %tbody
+    %tr
+      %th= @category.id
+      %th= @category.name
+      %th= @category.image_link
+%b= link_to t('.back'), admin_categories_path, :class => 'btn btn-outline-secondary'
