@@ -1,0 +1,14 @@
+%table.table.table-striped.table-hover
+  %thead
+    %tr
+      %td= UsefulVideo.human_attribute_name(:id)
+      %td= UsefulVideo.human_attribute_name(:description)
+      %td= UsefulVideo.human_attribute_name(:link)
+      %td= UsefulVideo.human_attribute_name(:category)
+  %tbody
+    %tr
+      %td= @usefulvideo.id
+      %td= @usefulvideo.description
+      %td= @usefulvideo.link
+      %td= @usefulvideo.category.name
+%b= link_to t('.back'), admin_usefulvideos_path, :class => 'btn btn-outline-secondary'

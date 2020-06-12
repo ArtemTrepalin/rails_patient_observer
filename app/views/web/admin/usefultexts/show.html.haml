@@ -1,0 +1,12 @@
+%table.table.table-striped.table-hover
+  %thead
+    %tr
+      %td= UsefulText.human_attribute_name(:id)
+      %td= UsefulText.human_attribute_name(:description)
+      %td= UsefulText.human_attribute_name(:category)
+  %tbody
+    %tr
+      %td= @usefultext.id
+      %td= @usefultext.description
+      %td= @usefultext.category.name
+%b= link_to t('.back'), admin_usefultexts_path, :class => 'btn btn-outline-secondary'

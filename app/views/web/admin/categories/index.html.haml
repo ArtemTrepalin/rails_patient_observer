@@ -1,0 +1,14 @@
+%table.table.table-striped.table-hover
+  %tr
+    %td= Category.human_attribute_name(:id)
+    %td= Category.human_attribute_name(:name)
+    %td= Category.human_attribute_name(:image_link)
+    %td= t('control')
+  - @categories.each do |category|
+    %tr
+      %td= category.id
+      %td= category.name
+      %td= category.image_link
+      %td= link_to t('.show'), admin_category_path(category)
+= link_to t('.create'), new_admin_category_path(@category), :class => "btn btn-outline-secondary"
+= link_to t('.back'), admin_root_path, :class => "btn btn-outline-secondary"

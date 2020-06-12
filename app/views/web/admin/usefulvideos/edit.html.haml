@@ -1,0 +1,6 @@
+= simple_form_for @usefulvideo, url: admin_usefulvideos_path(@usefulvideo.id) do |f|
+  = f.input :description
+  = f.input :link
+  = f.association :category
+  = f.button :submit, :class => "btn btn-outline-secondary"
+= link_to t('.back'), admin_usefulvideos_path, :class => "btn btn-outline-secondary"

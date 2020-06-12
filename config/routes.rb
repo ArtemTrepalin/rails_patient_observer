@@ -19,6 +19,9 @@ Rails.application.routes.draw do
       resources :patients
       resources :checklists
       resources :contacts
+      resources :categories
+      resources :usefulvideos
+      resources :usefultexts
       resources :histories, only: [:index, :show]
       root 'welcome#index'
     end

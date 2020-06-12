@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_08_140206) do
+ActiveRecord::Schema.define(version: 2020_06_12_121449) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,13 @@ ActiveRecord::Schema.define(version: 2020_06_08_140206) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_admins_on_email", unique: true
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.string "image_link"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "checklists", force: :cascade do |t|
@@ -84,6 +91,23 @@ ActiveRecord::Schema.define(version: 2020_06_08_140206) do
     t.index ["name"], name: "index_statuses_on_name", unique: true
   end
 
+  create_table "useful_texts", force: :cascade do |t|
+    t.string "description"
+    t.bigint "category_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["category_id"], name: "index_useful_texts_on_category_id"
+  end
+
+  create_table "useful_videos", force: :cascade do |t|
+    t.string "description"
+    t.string "link"
+    t.bigint "category_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["category_id"], name: "index_useful_videos_on_category_id"
+  end
+
   create_table "watchers", force: :cascade do |t|
     t.string "first_name", null: false
     t.string "last_name", null: false
@@ -105,4 +129,6 @@ ActiveRecord::Schema.define(version: 2020_06_08_140206) do
   add_foreign_key "patient_sicknesses", "sicknesses"
   add_foreign_key "patients", "statuses"
   add_foreign_key "patients", "watchers"
+  add_foreign_key "useful_texts", "categories"
+  add_foreign_key "useful_videos", "categories"
 end
