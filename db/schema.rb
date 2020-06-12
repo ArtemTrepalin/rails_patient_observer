@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 2020_06_12_121449) do
   create_table "checklists", force: :cascade do |t|
     t.string "name", null: false
     t.boolean "status", default: false
-    t.bigint "patient_id", null: false
+    t.bigint "patient_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["patient_id"], name: "index_checklists_on_patient_id"
@@ -57,33 +57,19 @@ ActiveRecord::Schema.define(version: 2020_06_12_121449) do
     t.index ["watcher_id"], name: "index_histories_on_watcher_id"
   end
 
-  create_table "patient_sicknesses", force: :cascade do |t|
-    t.bigint "patient_id", null: false
-    t.bigint "sickness_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["patient_id", "sickness_id"], name: "index_patient_sicknesses_on_patient_id_and_sickness_id", unique: true
-    t.index ["patient_id"], name: "index_patient_sicknesses_on_patient_id"
-    t.index ["sickness_id"], name: "index_patient_sicknesses_on_sickness_id"
-  end
-
   create_table "patients", force: :cascade do |t|
     t.string "first_name", null: false
     t.string "last_name", null: false
     t.string "sur_name"
-    t.string "phone_number", null: false
-    t.bigint "status_id", null: false
+    t.string "phone_number"
+    t.string "address"
+    t.string "sickness"
+    t.integer "height"
+    t.integer "weight"
     t.bigint "watcher_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "address"
-    t.index ["status_id"], name: "index_patients_on_status_id"
     t.index ["watcher_id"], name: "index_patients_on_watcher_id"
-  end
-
-  create_table "sicknesses", force: :cascade do |t|
-    t.string "name"
-    t.index ["name"], name: "index_sicknesses_on_name", unique: true
   end
 
   create_table "statuses", force: :cascade do |t|
@@ -92,7 +78,7 @@ ActiveRecord::Schema.define(version: 2020_06_12_121449) do
   end
 
   create_table "useful_texts", force: :cascade do |t|
-    t.string "description"
+    t.text "description"
     t.bigint "category_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -100,7 +86,7 @@ ActiveRecord::Schema.define(version: 2020_06_12_121449) do
   end
 
   create_table "useful_videos", force: :cascade do |t|
-    t.string "description"
+    t.text "description"
     t.string "link"
     t.bigint "category_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -125,9 +111,6 @@ ActiveRecord::Schema.define(version: 2020_06_12_121449) do
   add_foreign_key "histories", "patients"
   add_foreign_key "histories", "statuses"
   add_foreign_key "histories", "watchers"
-  add_foreign_key "patient_sicknesses", "patients"
-  add_foreign_key "patient_sicknesses", "sicknesses"
-  add_foreign_key "patients", "statuses"
   add_foreign_key "patients", "watchers"
   add_foreign_key "useful_texts", "categories"
   add_foreign_key "useful_videos", "categories"

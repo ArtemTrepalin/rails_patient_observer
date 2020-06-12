@@ -5,7 +5,9 @@ FactoryBot.define do
     sur_name
     phone_number
     address
-    status
+    sickness
+    height
+    weight
     watcher
   end
 end

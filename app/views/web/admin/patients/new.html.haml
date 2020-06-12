@@ -5,7 +5,9 @@
   = f.input :phone_number
   = f.input :address
   = f.input :password
-  = f.association :status
+  = f.input :sickness
+  = f.input :height
+  = f.input :weight
   = f.association :watcher
   = f.button :submit, class: 'btn btn-outline-secondary'
 = link_to t('.back'), admin_patients_path, class: 'btn btn-outline-secondary'

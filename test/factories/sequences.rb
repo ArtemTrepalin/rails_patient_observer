@@ -1,9 +1,9 @@
 FactoryBot.define do
-  sequence :numeric, aliases: [:price] do |n|
+  sequence :numeric, aliases: %i[price height weight] do |n|
     0 + n
   end
 
-  sequence :string, aliases: %i[name link image_link address first_name sur_name last_name password] do |n|
+  sequence :string, aliases: %i[name link sickness image_link address first_name sur_name last_name password] do |n|
     "teststring#{n}"
   end
 
