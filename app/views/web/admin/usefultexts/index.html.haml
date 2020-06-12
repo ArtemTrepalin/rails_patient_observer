@@ -1,0 +1,14 @@
+%table.table.table-striped.table-hover
+  %tr
+    %td= UsefulText.human_attribute_name(:id)
+    %td= UsefulText.human_attribute_name(:description)
+    %td= UsefulText.human_attribute_name(:category)
+    %td= t('control')
+  - @usefultexts.each do |usefultext|
+    %tr
+      %td= usefultext.id
+      %td= usefultext.description
+      %td= usefultext.category.name
+      %td= link_to t('.show'), admin_usefultext_path(usefultext)
+= link_to t('.create'), new_admin_usefultext_path(@usefultext), :class => "btn btn-outline-secondary"
+= link_to t('.back'), admin_root_path, :class => "btn btn-outline-secondary"
