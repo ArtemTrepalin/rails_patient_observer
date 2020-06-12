@@ -1,13 +1,16 @@
 %table.table.table-striped.table-hover
   %thead
     %tr
-      %th= Patient.human_attribute_name(:first_name)
-      %th= Patient.human_attribute_name(:last_name)
-      %th= Patient.human_attribute_name(:sur_name)
-      %th= Patient.human_attribute_name(:phone_number)
-      %th= Patient.human_attribute_name(:address)
-      %th= Patient.human_attribute_name(:status)
-      %th= Patient.human_attribute_name(:watcher)
+      %td= Patient.human_attribute_name(:id)
+      %td= Patient.human_attribute_name(:first_name)
+      %td= Patient.human_attribute_name(:last_name)
+      %td= Patient.human_attribute_name(:sur_name)
+      %td= Patient.human_attribute_name(:phone_number)
+      %td= Patient.human_attribute_name(:address)
+      %td= Patient.human_attribute_name(:sickness)
+      %td= Patient.human_attribute_name(:height)
+      %td= Patient.human_attribute_name(:weight)
+      %td= Patient.human_attribute_name(:watcher)
   %tbody
     %tr
       %th= @patient.first_name
@@ -15,7 +18,9 @@
       %th= @patient.sur_name
       %th= @patient.address
       %th= @patient.phone_number
-      %th= @patient.status.name
+      %th= @patient.sickness
+      %th= @patient.height
+      %th= @patient.weight
       %th= @patient.watcher.first_name
 %b= link_to t('.back'), admin_patients_path, :class => 'btn btn-outline-secondary'
 %b= link_to t('.edit'), edit_admin_patient_path(@patient.id), :class => "btn btn-outline-secondary"

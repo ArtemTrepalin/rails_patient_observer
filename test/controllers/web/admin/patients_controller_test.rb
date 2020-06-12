@@ -17,17 +17,14 @@ class Web::Admin::PatientsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should create patient' do
-    status = create :status
     watcher = create :watcher
     patient_attrs = attributes_for :patient
-    patient_attrs[:status_id] = status.id
     patient_attrs[:watcher_id] = watcher.id
     post admin_patients_path, params: { patient: patient_attrs }
     assert_response :redirect
 
     patient = Patient.last
     assert_equal patient_attrs[:last_name], patient.last_name
-    assert_equal patient.status, status
     assert_equal patient.watcher, watcher
   end
 
@@ -59,18 +56,5 @@ class Web::Admin::PatientsControllerTest < ActionDispatch::IntegrationTest
 
     @patient.reload
     assert_equal attrs[:first_name], @patient.first_name
-  end
-
-  test 'should add history_log after update patient' do
-    attrs = {}
-    attrs[:first_name] = generate :first_name
-    put admin_patient_path(@patient.id), params: { patient: attrs }
-    assert_response :redirect
-
-    @patient.reload
-    history = History.last
-    assert_equal history.watcher_id, @patient.watcher_id
-    assert_equal history.patient_id, @patient.id
-    assert_equal history.status_id, @patient.status_id
   end
 end
