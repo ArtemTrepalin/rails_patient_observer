@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_13_093628) do
+ActiveRecord::Schema.define(version: 2020_06_13_101815) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,6 +44,12 @@ ActiveRecord::Schema.define(version: 2020_06_13_093628) do
     t.string "phone_number", null: false
     t.bigint "patient_id"
     t.index ["patient_id"], name: "index_contacts_on_patient_id"
+  end
+
+  create_table "diets", force: :cascade do |t|
+    t.text "description"
+    t.bigint "patient_id"
+    t.index ["patient_id"], name: "index_diets_on_patient_id"
   end
 
   create_table "help_addresses", force: :cascade do |t|
@@ -116,6 +122,7 @@ ActiveRecord::Schema.define(version: 2020_06_13_093628) do
 
   add_foreign_key "checklists", "patients"
   add_foreign_key "contacts", "patients"
+  add_foreign_key "diets", "patients"
   add_foreign_key "help_addresses", "patients"
   add_foreign_key "histories", "patients"
   add_foreign_key "histories", "statuses"
