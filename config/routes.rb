@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       post '/auth/login', to: 'authentication#login'
       resources :watchers
+      resources :patients
     end
   end
 
