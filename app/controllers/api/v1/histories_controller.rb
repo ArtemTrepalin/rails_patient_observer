@@ -1,11 +1,10 @@
 
 class Api::V1::HistoriesController < Api::V1::ApplicationController
   before_action :authorize_request, except: :create
-  before_action :find_history, except: %i[create index]
 
   def index
     @histories = History.all
-    render json: @historys, status: :ok
+    render json: @histories, status: :ok
   end
 
   def show
