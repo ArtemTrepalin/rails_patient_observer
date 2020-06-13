@@ -8,6 +8,11 @@ Rails.application.routes.draw do
       resources :watchers
       resources :patients
       resources :histories
+      resources :statuses, only: :show
+      resources :checklists
+      resources :contacts
+      resources :help_addresses
+      resources :diets
     end
   end
 
