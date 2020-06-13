@@ -22,14 +22,10 @@ Rails.application.routes.draw do
       resources :admins
       resources :statuses
       resources :watchers
-      resources :sicknesses
       resources :patients
-      resources :checklists
-      resources :contacts
       resources :categories
       resources :usefulvideos
       resources :usefultexts
-      resources :histories, only: [:index, :show]
       root 'welcome#index'
     end
   end
