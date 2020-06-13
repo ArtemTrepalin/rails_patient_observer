@@ -5,6 +5,7 @@
     %td= Patient.human_attribute_name(:last_name)
     %td= Patient.human_attribute_name(:sur_name)
     %td= Patient.human_attribute_name(:phone_number)
+    %td= Patient.human_attribute_name(:birthday)
     %td= Patient.human_attribute_name(:address)
     %td= Patient.human_attribute_name(:sickness)
     %td= Patient.human_attribute_name(:height)
@@ -17,8 +18,9 @@
       %td= patient.first_name
       %td= patient.last_name
       %td= patient.sur_name
-      %td= patient.address
       %td= patient.phone_number
+      %td= patient.birthday
+      %td= patient.address
       %td= patient.sickness
       %td= patient.height
       %td= patient.weight
