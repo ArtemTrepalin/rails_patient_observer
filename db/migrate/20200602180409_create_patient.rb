@@ -5,6 +5,7 @@ class CreatePatient < ActiveRecord::Migration[6.0]
       t.string :last_name, null: false
       t.string :sur_name
       t.string :phone_number
+      t.datetime :birthday
       t.string :address
       t.string :sickness
       t.integer :height

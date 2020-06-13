@@ -62,6 +62,7 @@ ActiveRecord::Schema.define(version: 2020_06_12_121449) do
     t.string "last_name", null: false
     t.string "sur_name"
     t.string "phone_number"
+    t.datetime "birthday"
     t.string "address"
     t.string "sickness"
     t.integer "height"

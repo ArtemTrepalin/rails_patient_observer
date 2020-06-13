@@ -18,7 +18,7 @@ FactoryBot.define do
   sequence :phone_number do
     "8800#{rand(10**6..10**7)}"
   end
-  sequence :date_start do
+  sequence :birthday do
     Time.zone.now
   end
 
