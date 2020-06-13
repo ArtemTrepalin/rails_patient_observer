@@ -37,6 +37,6 @@ class Web::Admin::PatientsController < Web::Admin::ApplicationController
 
   def patient_attrs
     params.require(:patient).permit(:first_name, :last_name, :sur_name, :phone_number, :address, :sickness,
-                                    :height, :weight, :watcher_id)
+                                    :birthday, :height, :weight, :watcher_id)
   end
 end
