@@ -1,4 +1,3 @@
-
 class Api::V1::WatchersController < Api::V1::ApplicationController
   before_action :authorize_request, except: :create
   before_action :find_watcher, except: %i[create index]
@@ -37,8 +36,8 @@ class Api::V1::WatchersController < Api::V1::ApplicationController
 
   def find_watcher
     @watcher = Watcher.find_by(email: params[:email])
-    rescue ActiveRecord::RecordNotFound
-      render json: { errors: 'watcher not found' }, status: :not_found
+  rescue ActiveRecord::RecordNotFound
+    render json: { errors: 'watcher not found' }, status: :not_found
   end
 
   def watcher_params

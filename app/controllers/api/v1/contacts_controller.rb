@@ -1,4 +1,3 @@
-
 class Api::V1::ContactsController < Api::V1::ApplicationController
   before_action :authorize_request, except: :create
 
