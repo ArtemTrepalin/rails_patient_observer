@@ -1,11 +1,11 @@
 
 class Api::V1::WatchersController < Api::V1::ApplicationController
   before_action :authorize_request, except: :create
-  before_action :find_user, except: %i[create index]
+  before_action :find_watcher, except: %i[create index]
 
   def index
-    @users = Watcher.all
-    render json: @users, status: :ok
+    @watchers = Watcher.all
+    render json: @watchers, status: :ok
   end
 
   def show
@@ -35,7 +35,7 @@ class Api::V1::WatchersController < Api::V1::ApplicationController
 
   private
 
-  def find_user
+  def find_watcher
     @watcher = Watcher.find_by(email: params[:email])
     rescue ActiveRecord::RecordNotFound
       render json: { errors: 'watcher not found' }, status: :not_found
