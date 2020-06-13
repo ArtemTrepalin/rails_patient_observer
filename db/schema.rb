@@ -10,10 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_12_121449) do
+ActiveRecord::Schema.define(version: 2020_06_13_093628) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "addresses", force: :cascade do |t|
+    t.string "name"
+    t.string "location"
+    t.bigint "patient_id"
+    t.index ["patient_id"], name: "index_addresses_on_patient_id"
+  end
 
   create_table "admins", force: :cascade do |t|
     t.string "email", null: false
@@ -107,6 +114,7 @@ ActiveRecord::Schema.define(version: 2020_06_12_121449) do
     t.index ["email"], name: "index_watchers_on_email", unique: true
   end
 
+  add_foreign_key "addresses", "patients"
   add_foreign_key "checklists", "patients"
   add_foreign_key "contacts", "patients"
   add_foreign_key "histories", "patients"
