@@ -7,6 +7,7 @@ Rails.application.routes.draw do
       post '/auth/login', to: 'authentication#login'
       resources :watchers
       resources :patients
+      resources :histories
     end
   end
 
