@@ -3,7 +3,7 @@ FactoryBot.define do
     0 + n
   end
 
-  sequence :string, aliases: %i[name link sickness image_link address first_name sur_name last_name password] do |n|
+  sequence :string, aliases: %i[name temperature pressure link sickness image_link address first_name sur_name last_name password] do |n|
     "teststring#{n}"
   end
 

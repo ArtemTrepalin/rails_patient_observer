@@ -47,14 +47,14 @@ ActiveRecord::Schema.define(version: 2020_06_12_121449) do
   end
 
   create_table "histories", force: :cascade do |t|
+    t.string "temperature"
+    t.string "pressure"
     t.bigint "patient_id", null: false
-    t.bigint "watcher_id", null: false
     t.bigint "status_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["patient_id"], name: "index_histories_on_patient_id"
     t.index ["status_id"], name: "index_histories_on_status_id"
-    t.index ["watcher_id"], name: "index_histories_on_watcher_id"
   end
 
   create_table "patients", force: :cascade do |t|
@@ -111,7 +111,6 @@ ActiveRecord::Schema.define(version: 2020_06_12_121449) do
   add_foreign_key "contacts", "patients"
   add_foreign_key "histories", "patients"
   add_foreign_key "histories", "statuses"
-  add_foreign_key "histories", "watchers"
   add_foreign_key "patients", "watchers"
   add_foreign_key "useful_texts", "categories"
   add_foreign_key "useful_videos", "categories"
