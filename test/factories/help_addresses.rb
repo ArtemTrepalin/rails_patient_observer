@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :address do
+  factory :help_address do
     name
     location
     patient

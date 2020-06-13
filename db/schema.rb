@@ -15,13 +15,6 @@ ActiveRecord::Schema.define(version: 2020_06_13_093628) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "addresses", force: :cascade do |t|
-    t.string "name"
-    t.string "location"
-    t.bigint "patient_id"
-    t.index ["patient_id"], name: "index_addresses_on_patient_id"
-  end
-
   create_table "admins", force: :cascade do |t|
     t.string "email", null: false
     t.string "password_digest", null: false
@@ -51,6 +44,13 @@ ActiveRecord::Schema.define(version: 2020_06_13_093628) do
     t.string "phone_number", null: false
     t.bigint "patient_id"
     t.index ["patient_id"], name: "index_contacts_on_patient_id"
+  end
+
+  create_table "help_addresses", force: :cascade do |t|
+    t.string "name"
+    t.string "location"
+    t.bigint "patient_id"
+    t.index ["patient_id"], name: "index_help_addresses_on_patient_id"
   end
 
   create_table "histories", force: :cascade do |t|
@@ -114,9 +114,9 @@ ActiveRecord::Schema.define(version: 2020_06_13_093628) do
     t.index ["email"], name: "index_watchers_on_email", unique: true
   end
 
-  add_foreign_key "addresses", "patients"
   add_foreign_key "checklists", "patients"
   add_foreign_key "contacts", "patients"
+  add_foreign_key "help_addresses", "patients"
   add_foreign_key "histories", "patients"
   add_foreign_key "histories", "statuses"
   add_foreign_key "patients", "watchers"

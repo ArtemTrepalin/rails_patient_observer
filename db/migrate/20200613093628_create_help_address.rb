@@ -1,6 +1,6 @@
-class CreateAddress < ActiveRecord::Migration[6.0]
+class CreateHelpAddress < ActiveRecord::Migration[6.0]
   def change
-    create_table :addresses do |t|
+    create_table :help_addresses do |t|
       t.string :name
       t.string :location
       t.references :patient, null: true, foreign_key: true
