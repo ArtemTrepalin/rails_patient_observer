@@ -1,4 +1,4 @@
-class Api::V1::Patients::HelpAddressesController < Api::V1::Patients::ApplicationController
+class Api::V1::Watchers::Patients::HelpAddressesController < Api::V1::Watchers::Patients::ApplicationController
   before_action :authorize_request, except: :create
   before_action :find_help_address, except: %i[create index]
 

@@ -1,4 +1,4 @@
-class Api::V1::Patients::HistoriesController < Api::V1::Patients::ApplicationController
+class Api::V1::Watchers::Patients::HistoriesController < Api::V1::Watchers::Patients::ApplicationController
   before_action :authorize_request, except: :create
   before_action :find_history, except: %i[create index]
 

@@ -1,4 +1,4 @@
-class Api::V1::Patients::ContactsController < Api::V1::Patients::ApplicationController
+class Api::V1::Watchers::Patients::ContactsController < Api::V1::Watchers::Patients::ApplicationController
   before_action :authorize_request, except: :create
   before_action :find_contact, except: %i[create index]
 

@@ -1,10 +1,10 @@
 
-class Api::V1::PatientsController < Api::V1::ApplicationController
+class Api::V1::Watchers::PatientsController < Api::V1::Watchers::ApplicationController
   before_action :authorize_request, except: :create
   before_action :find_patient, except: %i[create index]
 
   def index
-    @patients = @current_watcher.patients
+    @patients = Patient.where(:watcher_id => params['watcher_id'])
     render json: @patients, status: :ok
   end
 
