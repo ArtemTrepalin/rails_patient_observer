@@ -1,3 +1,4 @@
+
 class Api::V1::PatientsController < Api::V1::ApplicationController
   before_action :authorize_request, except: :create
   before_action :find_patient, except: %i[create index]
@@ -35,14 +36,14 @@ class Api::V1::PatientsController < Api::V1::ApplicationController
   private
 
   def find_patient
-    @patient = patient.find_by(phone_number: params[:phone_number])
-  rescue ActiveRecord::RecordNotFound
-    render json: { errors: 'patient not found' }, status: :not_found
+    @patient = patient.find_by(watcher_id: params[:watcher_id])
+    rescue ActiveRecord::RecordNotFound
+      render json: { errors: 'patient not found' }, status: :not_found
   end
 
   def patient_params
     params.permit(
-      :first_name, :last_name, :sur_name, :phone_number, :birthday, :address, :sickness, :height, :weight, :watcher_id
+      :first_name, :last_name, :sur_name, :email, :phone_number, :birthday, :address, :sickness, :height, :weith
     )
   end
 end
