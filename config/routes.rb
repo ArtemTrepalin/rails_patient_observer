@@ -7,12 +7,16 @@ Rails.application.routes.draw do
       post '/auth/login', to: 'authentication#login'
       resources :watchers
       resources :patients
-      resources :histories
       resources :statuses, only: :show
-      resources :checklists
-      resources :contacts
-      resources :help_addresses
-      resources :diets
+      resources :patients do
+        scope module: :patients do
+          resources :checklists
+          resources :contacts
+          resources :help_addresses
+          resources :diets
+          resources :histories
+        end
+      end
     end
   end
 
