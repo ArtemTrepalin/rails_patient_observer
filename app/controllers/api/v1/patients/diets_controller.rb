@@ -1,4 +1,4 @@
-class Api::V1::DietsController < Api::V1::Patients::ApplicationController
+class Api::V1::Patients::DietsController < Api::V1::Patients::ApplicationController
   before_action :authorize_request, except: :create
   before_action :find_diet, except: %i[create index]
 
