@@ -5,16 +5,18 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       post '/auth/login', to: 'authentication#login'
-      resources :watchers
-      resources :patients
       resources :statuses, only: :show
-      resources :patients do
-        scope module: :patients do
-          resources :checklists
-          resources :contacts
-          resources :help_addresses
-          resources :diets
-          resources :histories
+      resources :watchers do
+        scope module: :watchers do
+          resources :patients do
+            scope module: :patients do
+              resources :checklists
+              resources :contacts
+              resources :help_addresses
+              resources :diets
+              resources :histories
+            end
+          end
         end
       end
     end
