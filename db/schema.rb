@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_13_101815) do
+ActiveRecord::Schema.define(version: 2020_06_14_093921) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 2020_06_13_101815) do
   create_table "diets", force: :cascade do |t|
     t.text "description"
     t.bigint "patient_id"
+    t.string "title"
     t.index ["patient_id"], name: "index_diets_on_patient_id"
   end
 
@@ -75,7 +76,7 @@ ActiveRecord::Schema.define(version: 2020_06_13_101815) do
     t.string "last_name", null: false
     t.string "sur_name"
     t.string "phone_number"
-    t.datetime "birthday"
+    t.date "birthday"
     t.string "address"
     t.string "sickness"
     t.integer "height"
