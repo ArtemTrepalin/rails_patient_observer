@@ -1,5 +1,5 @@
 class Watcher < ApplicationRecord
-  has_many :patient, dependent: :nullify
+  has_many :patients, dependent: :nullify
 
   validates :first_name, :last_name, :phone_number, :email, presence: true
   validates :password, presence: true, length: { minimum: 6 }, on: :create
