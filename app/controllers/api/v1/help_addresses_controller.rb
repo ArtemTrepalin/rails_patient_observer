@@ -1,5 +1,7 @@
 class Api::V1::HelpAddressesController < Api::V1::ApplicationController
   before_action :authorize_request, except: :create
+  before_action :find_help_address, except: %i[create index]
+
 
   def index
     @help_addresses = Help_address.all
@@ -32,6 +34,12 @@ class Api::V1::HelpAddressesController < Api::V1::ApplicationController
   end
 
   private
+  def find_help_address
+    @help_address = Help_address.find_by(patient_id: params[:patient_id])
+    rescue ActiveRecord::RecordNotFound
+      render json: { errors: 'help_address not found' }, status: :not_found
+  end
+
 
   def help_address_params
     params.permit(

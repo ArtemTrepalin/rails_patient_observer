@@ -1,5 +1,6 @@
 class Api::V1::DietsController < Api::V1::ApplicationController
   before_action :authorize_request, except: :create
+  before_action :find_diet, except: %i[create index]
 
   def index
     @diets = Diet.all
@@ -32,6 +33,12 @@ class Api::V1::DietsController < Api::V1::ApplicationController
   end
 
   private
+  def find_diet
+    @diet = Diet.find_by(patient_id: params[:patient_id])
+    rescue ActiveRecord::RecordNotFound
+      render json: { errors: 'diet not found' }, status: :not_found
+  end
+
 
   def diet_params
     params.permit(
