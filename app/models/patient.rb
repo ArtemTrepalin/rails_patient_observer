@@ -5,5 +5,6 @@ class Patient < ApplicationRecord
   has_many :contact, dependent: :destroy
   has_many :help_address, dependent: :destroy
 
-  validates :first_name, :last_name, :birthday, presence: true
+  has_secure_password validations: false
+  validates :first_name, :last_name, :birthday, :password, presence: true
 end

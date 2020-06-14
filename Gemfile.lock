@@ -76,6 +76,7 @@ GEM
       zeitwerk (~> 2.2, >= 2.2.2)
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
+    aescrypt (1.0.0)
     ast (2.4.0)
     autoprefixer-rails (9.7.6)
       execjs
@@ -385,6 +386,7 @@ DEPENDENCIES
   active_model_serializers (~> 0.10.0)
   activestorage (>= 6.0.3.1)
   activesupport (>= 6.0.3.1)
+  aescrypt
   bcrypt (~> 3.1.7)
   bootsnap (>= 1.4.2)
   bootstrap (~> 4.4.1)
