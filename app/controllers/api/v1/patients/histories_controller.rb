@@ -1,10 +1,10 @@
-class Api::V1::HistoriesController < Api::V1::ApplicationController
+class Api::V1::Patients::HistoriesController < Api::V1::Patients::ApplicationController
   before_action :authorize_request, except: :create
   before_action :find_history, except: %i[create index]
 
 
   def index
-    @histories = History.all
+    @histories = History.where(:patient_id => params['patient_id'])
     render json: @histories, status: :ok
   end
 
@@ -36,7 +36,7 @@ class Api::V1::HistoriesController < Api::V1::ApplicationController
   private
 
   def find_history
-    @history = History.find_by(patient_id: params[:patient_id])
+    @history = History.find_by(id: params[:id])
     rescue ActiveRecord::RecordNotFound
       render json: { errors: 'history not found' }, status: :not_found
   end

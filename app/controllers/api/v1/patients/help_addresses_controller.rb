@@ -1,10 +1,10 @@
-class Api::V1::HelpAddressesController < Api::V1::ApplicationController
+class Api::V1::Patients::HelpAddressesController < Api::V1::Patients::ApplicationController
   before_action :authorize_request, except: :create
   before_action :find_help_address, except: %i[create index]
 
 
   def index
-    @help_addresses = Help_address.all
+    @help_addresses = HelpAddress.where(:patient_id => params['patient_id'])
     render json: @help_addresses, status: :ok
   end
 
@@ -13,7 +13,7 @@ class Api::V1::HelpAddressesController < Api::V1::ApplicationController
   end
 
   def create
-    @help_address = Help_address.new(help_address_params)
+    @help_address = HelpAddress.new(help_address_params)
     if @help_address.save
       render json: @help_address, status: :created
     else
@@ -35,7 +35,7 @@ class Api::V1::HelpAddressesController < Api::V1::ApplicationController
 
   private
   def find_help_address
-    @help_address = Help_address.find_by(patient_id: params[:patient_id])
+    @help_address = Help_address.find_by(id: params[:id])
     rescue ActiveRecord::RecordNotFound
       render json: { errors: 'help_address not found' }, status: :not_found
   end

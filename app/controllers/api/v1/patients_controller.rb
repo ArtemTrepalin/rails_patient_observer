@@ -9,11 +9,15 @@ class Api::V1::PatientsController < Api::V1::ApplicationController
   end
 
   def show
+    if params[:password]
+      @patient[:sickness] = AESCrypt.decrypt(@patient[:sickness], params[:password])
+    end
     render json: @patient, status: :ok
   end
 
   def create
     @patient = Patient.new(patient_params)
+    @patient[:sickness] = AESCrypt.encrypt(patient_params[:sickness], patient_params[:password])
     if @patient.save
       render json: @patient, status: :created
     else
@@ -36,14 +40,14 @@ class Api::V1::PatientsController < Api::V1::ApplicationController
   private
 
   def find_patient
-    @patient = Patient.find_by(watcher_id: params[:watcher_id])
+    @patient = Patient.find_by(id: params[:id])
     rescue ActiveRecord::RecordNotFound
       render json: { errors: 'patient not found' }, status: :not_found
   end
 
   def patient_params
     params.permit(
-      :first_name, :last_name, :sur_name, :email, :phone_number, :birthday, :address, :sickness, :height, :weith, :watcher_id
+      :first_name, :last_name, :sur_name, :password, :email, :phone_number, :birthday, :address, :sickness, :height, :weith, :watcher_id
     )
   end
 end

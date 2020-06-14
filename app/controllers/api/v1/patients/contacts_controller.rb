@@ -1,10 +1,10 @@
-class Api::V1::ContactsController < Api::V1::ApplicationController
+class Api::V1::Patients::ContactsController < Api::V1::Patients::ApplicationController
   before_action :authorize_request, except: :create
   before_action :find_contact, except: %i[create index]
 
 
   def index
-    @contacts = Contact.all
+    @contacts = Contact.where(:patient_id => params['patient_id'])
     render json: @contacts, status: :ok
   end
 
@@ -36,7 +36,7 @@ class Api::V1::ContactsController < Api::V1::ApplicationController
   private
 
   def find_contact
-    @contact = Contact.find_by(patient_id: params[:patient_id])
+    @contact = Contact.find_by(id: params[:id])
     rescue ActiveRecord::RecordNotFound
       render json: { errors: 'contact not found' }, status: :not_found
   end
