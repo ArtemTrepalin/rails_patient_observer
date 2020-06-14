@@ -1,5 +1,7 @@
 class Api::V1::ChecklistsController < Api::V1::ApplicationController
   before_action :authorize_request, except: :create
+  before_action :find_checklist, except: %i[create index]
+
 
   def index
     @checklists = Checklist.all
@@ -32,6 +34,12 @@ class Api::V1::ChecklistsController < Api::V1::ApplicationController
   end
 
   private
+
+  def find_checklist
+    @checklist = Checklist.find_by(patient_id: params[:patient_id])
+    rescue ActiveRecord::RecordNotFound
+      render json: { errors: 'checklist not found' }, status: :not_found
+  end
 
   def checklist_params
     params.permit(
