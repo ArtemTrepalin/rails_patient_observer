@@ -36,6 +36,6 @@ class Web::Admin::UsefultextsController < Web::Admin::ApplicationController
   private
 
   def usefultexts_attrs
-    params.require(:usefultext).permit(:description, :category_id)
+    params.require(:useful_text).permit(:description, :category_id)
   end
 end
