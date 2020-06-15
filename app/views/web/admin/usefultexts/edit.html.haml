@@ -1,5 +1,6 @@
 = simple_form_for @usefultext, url: admin_usefultexts_path(@usefultext.id) do |f|
   = f.input :description
+  = f.input :title
   = f.association :category
   = f.button :submit, :class => "btn btn-outline-secondary"
 = link_to t('.back'), admin_usefultexts_path, :class => "btn btn-outline-secondary"
